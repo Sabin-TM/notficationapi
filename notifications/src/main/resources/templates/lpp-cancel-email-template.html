@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Testimony Cancellation Notification</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+        }
+        .header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .details {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="details">
+        <p>
+            You registered to testify <span th:if="${billNumber}" th:text="'on (HB)'"></span>  <span th:text="${billNumber}"></span><span th:if="${committeeName}" th:text="'in front of the'"></span> <span th:text="${committeeName}"></span>
+            on <span th:text="${#temporals.format(dateTime, 'MMMM d, yyyy')}"></span> at <span th:text="${#temporals.format(dateTime, 'h:mm a')}"></span>. This email is to notify you that the meeting has been cancelled.
+        </p>
+
+    </div>
+</div>
+</body>
+</html>

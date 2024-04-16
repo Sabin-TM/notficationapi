@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Testimony Rescheduled Notification</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+        }
+        .header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .details {
+            margin-bottom: 20px;
+        }
+        .link {
+            font-weight: bold;
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="details">
+        <p>
+            You have registered to testify <span th:if="${billNumber}" th:text="'on '"></span>
+            <span th:text="${billNumber}"></span>
+            <span th:if="${committeeName}" th:text="'in front of the'"></span> <span th:text="${committeeName}"></span>
+            on <span th:text="${#temporals.format(dateTime, 'MMMM d, yyyy')}"></span>   at <span th:text="${#temporals.format(dateTime, 'h:mm a')}"></span>.
+            This meeting has been rescheduled for
+            <span th:text="${#temporals.format(newDateTime, 'MMMM d, yyyy')}"> at <span th:text="${#temporals.format(newDateTime, 'h:mm a')}"></span>.
+        </p>
+        <p>
+            This registration is only valid for the <span th:text="${committeeName}"></span> meeting on <span th:text="${#temporals.format(newDateTime, 'MMMM d, yyyy')}"></span>  at <span th:text="${#temporals.format(newDateTime, 'h:mm a')}"></span>.  The link below is specific to you only and should not be shared with any other party.
+        </p>
+        <p>
+            To testify you must have a device capable of running Zoom that is equipped with a microphone and be connected to a reliable Internet connection.
+        </p>
+        <p>
+            <strong>Select this link to join the meeting:</strong><br>
+                <a th:href="${zoomLink}">Committee Zoom Link</a>
+        </p>
+        <p>
+            If you are using a mobile device, it is recommended that you first download the Zoom app.
+        </p>
+        <p>
+            If prompted, enter your email and full name when entering Zoom.
+        </p>
+        <p>
+            Select the “raise hand button” (located on the lower menu bar) when the presiding officer calls for public comment on the agenda item for which you have registered. When it is your turn to speak, a button will appear allowing you to unmute yourself.
+        </p>
+        <p>
+            For issues joining the meeting, please call the Legislative IT Service Desk at 406-444-0912.
+        </p>
+    </div>
+</div>
+</body>
+</html>
